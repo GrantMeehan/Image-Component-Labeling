@@ -1,0 +1,28 @@
+// Implementation file for array version of Stack Template class
+// Source: www.cs.colorado.edu/~main/chapter7/stack1.template
+#include <cassert>
+
+template <class Item>
+const typename stack<Item>::size_type stack<Item>::CAPACITY;
+
+template <class Item>
+void stack<Item>::push(const Item& entry)
+{
+  assert(size() < CAPACITY);
+  data[used] = entry;
+  ++used;
+}
+
+template <class Item>
+void stack<Item>::pop()
+{
+  assert(!empty());
+  --used;
+}
+
+template <class Item>
+Item stack<Item>::top() const
+{
+  assert(!empty());
+  return data[used-1];
+}
